@@ -18,9 +18,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 
 interface PokemonDetailPageProps {
-	params: {
-		id: string;
-	};
+	params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({
@@ -31,7 +29,7 @@ export async function generateMetadata({
 	try {
 		const pokemon = await getPokemonDetails(id);
 		return {
-			title: `${capitalizeFirstLetter(pokemon.name)} | Pokémon Explorer`,
+			title: `${capitalizeFirstLetter(pokemon.name)} | Rad Pokédex`,
 			description: `View details about ${capitalizeFirstLetter(
 				pokemon.name
 			)}, a ${pokemon.types

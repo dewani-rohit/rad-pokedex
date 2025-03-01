@@ -2,10 +2,10 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { getPokemonDetails } from "@/lib/api";
-import { PokemonDetail } from "@/types/pokemon";
+import { PokemonDetails } from "@/types";
 
 export function usePokemonDetails(id: string) {
-	return useQuery<PokemonDetail, Error>({
+	return useQuery<PokemonDetails, Error>({
 		queryKey: ["pokemon", id],
 		queryFn: () => getPokemonDetails(id),
 		retry: 2,
